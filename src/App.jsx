@@ -1,31 +1,30 @@
 import { useState } from "react"
 
-import soloImg from './assets/solo.jpg'
-import jjkImg from './assets/jjk.jpg'
-import demonImg from './assets/demon.jpg'
+import soloImg from "./assets/solo.jpg"
+import jjkImg from "./assets/jjk.jpg"
+import demonImg from "./assets/demon.jpg"
 
 function App() {
 
   const [search, setSearch] = useState("")
 
   const animeList = [
+
     {
       title: "Solo Leveling",
-      image: soloImg,
-      download: "#"
+      image: soloImg
     },
 
     {
       title: "Jujutsu Kaisen",
-      image: jjkImg,
-      download: "#"
+      image: jjkImg
     },
 
     {
       title: "Demon Slayer",
-      image: demonImg,
-      download: "#"
+      image: demonImg
     }
+
   ]
 
   const filteredAnime = animeList.filter((anime) =>
@@ -33,69 +32,65 @@ function App() {
   )
 
   return (
-    <div
-      style={{
-        background: "#0f0f0f",
-        minHeight: "100vh",
-        color: "white",
-        padding: "40px",
-        fontFamily: "Arial"
-      }}
-    >
 
-      <h1
-        style={{
-          fontSize: "55px",
-          marginBottom: "10px"
-        }}
-      >
+    <div style={{
+      background: "#111",
+      minHeight: "100vh",
+      padding: "40px",
+      color: "white",
+      fontFamily: "Arial"
+    }}>
+
+      <h1 style={{
+        textAlign: "center",
+        fontSize: "50px",
+        marginBottom: "30px"
+      }}>
         Anime Zone
       </h1>
 
-      <p
-        style={{
-          color: "#aaa",
-          marginBottom: "30px"
-        }}
-      >
-        Sinhala Subtitle Downloads
-      </p>
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        marginBottom: "40px"
+      }}>
 
-      <input
-        type="text"
-        placeholder="Search anime..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        style={{
-          padding: "15px",
-          width: "320px",
-          borderRadius: "12px",
-          border: "none",
-          marginBottom: "40px",
-          fontSize: "16px",
-          outline: "none"
-        }}
-      />
+        <input
+          type="text"
+          placeholder="Search anime..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          style={{
+            padding: "15px",
+            width: "320px",
+            borderRadius: "12px",
+            border: "none",
+            outline: "none",
+            fontSize: "16px"
+          }}
+        />
 
-      <div
-        style={{
-          display: "flex",
-          gap: "25px",
-          flexWrap: "wrap"
-        }}
-      >
+      </div>
+
+      <div style={{
+        display: "flex",
+        gap: "30px",
+        flexWrap: "wrap",
+        justifyContent: "center"
+      }}>
 
         {filteredAnime.map((anime, index) => (
 
           <div
             key={index}
             style={{
-              background: "#1a1a1a",
-              width: "320px",
+              background: "#222",
+              width: "300px",
               borderRadius: "20px",
               overflow: "hidden",
               transition: "0.3s",
-              boxShadow: "0px 0px 15px rgba(0,0,0,0.5)"
+              transform: "scale(1)",
+              cursor: "pointer"
             }}
           >
 
@@ -113,33 +108,17 @@ function App() {
 
               <h2>{anime.title}</h2>
 
-              <p style={{ color: "#aaa" }}>
-                Sinhala Subtitle Download
-              </p>
+              <p>Sinhala Subtitle Download</p>
 
-              <a
-                href={anime.download}
-                target="_blank"
-                style={{
-                  textDecoration: "none"
-                }}
-              >
-                <button
-                  style={{
-                    padding: "12px 20px",
-                    border: "none",
-                    borderRadius: "10px",
-                    cursor: "pointer",
-                    fontWeight: "bold",
-                    marginTop: "10px",
-                    background: "#ff0055",
-                    color: "white",
-                    width: "100%"
-                  }}
-                >
-                  Download Subtitle
-                </button>
-              </a>
+              <button style={{
+                padding: "12px 20px",
+                border: "none",
+                borderRadius: "10px",
+                cursor: "pointer",
+                fontWeight: "bold"
+              }}>
+                Download Subtitle
+              </button>
 
             </div>
 
@@ -150,6 +129,7 @@ function App() {
       </div>
 
     </div>
+
   )
 }
 
